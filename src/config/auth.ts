@@ -20,4 +20,13 @@ export const {
   providers: [
     GitHub({ clientId: GITHUB_CLIENT_ID, clientSecret: GITHUB_CLIENT_SECRET }),
   ],
+  callbacks: {
+    async session({ session, user }: any) {
+      if (session && user) {
+        session.user.id = user.id;
+      }
+
+      return session;
+    },
+  },
 });

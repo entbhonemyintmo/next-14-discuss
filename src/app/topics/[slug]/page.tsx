@@ -1,9 +1,19 @@
-import React from 'react'
+import PostCreateForm from '@/components/post/create-post-form';
 
-export default function TopicShowPage() {
+interface TopicShowPageProps {
+  params: { slug: string };
+}
+
+export default function TopicShowPage({ params }: TopicShowPageProps) {
+  const { slug: topic } = params;
+
   return (
-    <main>
-        <h1>`Topic Show Page`</h1>
+    <main className="grid grid-cols-4 gap-4 p-4">
+      <div className="col-span-3">
+        <h1 className="text-xl m-2">{topic}</h1>
+      </div>
+
+      <PostCreateForm topicName={topic} />
     </main>
-  )
+  );
 }
