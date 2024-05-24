@@ -1,4 +1,4 @@
-import TopicCreateForm from '@/components/topic/create-topic-form';
+import Topics from '@/components/topic';
 
 export default function Home() {
   return (
@@ -6,9 +6,7 @@ export default function Home() {
       <div className="col-span-3">
         <h1 className="text-xl m2">Top Topics</h1>
       </div>
-      <div className="grid items-center">
-        <TopicCreateForm />
-      </div>
+      <Topics />
     </main>
   );
 }
