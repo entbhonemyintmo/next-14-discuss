@@ -4,7 +4,6 @@ import { auth } from '@/config/auth';
 import { db } from '@/db';
 import { Path } from '@/utils';
 import type { Post, Topic } from '@prisma/client';
-import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
@@ -70,5 +69,5 @@ export async function createPost(
   }
 
   revalidatePath(Path.home());
-  redirect(Path.postShow(topic.id, post.id));
+  redirect(Path.postShow(topic.slug, post.id));
 }
